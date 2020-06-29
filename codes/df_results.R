@@ -24,12 +24,11 @@ read_effect = function(file_dta){
 file_effect = list.files("document/results/") %>% .[grep("app",.)]
 effect_df = lapply(file_effect, function(x) read_effect(file_dta = x)) %>% data.table::rbindlist(.,use.names = T,fill = T) %>% data.frame(stringsAsFactors = F)
 
-
 ### Load event study
 file_event = list.files("document/results/") %>% .[grep("event study",.)]
 event_df = lapply(file_event, function(x) read_event(file_dta = x)) %>% data.table::rbindlist(.,use.names = T,fill = T) %>% data.frame(stringsAsFactors = F)
 
 ### Save 
 df_results <- list(effect_df,event_df)
-save(df_results,file = 'github-app/data/df_results.rds')
+saveRDS(df_results,file = 'github-app/data/df_results.rds')
 

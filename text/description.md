@@ -9,8 +9,8 @@ A partir de estos polígonos, se calcula la distancia entre los centroides de ca
 
 Ilustramos lo anterior en el Gráfico \ref{barranquilla_map}, en el que se presenta el límite de la zona de restricción de acompañante hombre de Barranquilla (línea roja), y las correspondientes zonas de tratamiento (verde), spillover (morado), control (azul) y exclusión (amarillo). Las estadísticas descriptivas de los delitos cometidos en las distintas ciudades en las zonas de tratamiento, spillover y control, 6 meses antes y después de las respectivas restricciones, se presentan en los Cuadros A1 a A3 del anexo. </div>
 
-**Celdas de tratamiento, spillover y control (Barranquilla)**
-<img src="identification.png" alt="identificacion" title="Celdas de tratamiento, spillover y control (Barranquilla)" width="600" hight="600">.
+<center> ***Celdas de tratamiento, spillover y control (Barranquilla)*** </center>.
+<center><img src="identification.png" alt="identificacion" title="Celdas de tratamiento, spillover y control (Barranquilla)" width="450" hight="450"></center>.
 
 <div style="text-align: justify"> 
 Identificamos los efectos causales de las distintas restricciones utilizando modelos de diferencia-en-diferencias, que comparan celdas de tratamiento, spillovers y control, antes y después de la entrada en vigencia de la restricción. El modelo de base es el siguiente: 
