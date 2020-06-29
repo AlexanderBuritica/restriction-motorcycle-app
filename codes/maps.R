@@ -66,15 +66,4 @@ restric <- spRbind(r_baq_male,r_bog_male) %>% spRbind(.,r_car_pass) %>%
 
 ### Save
 maps <- list(citys,restric)
-save(maps,file = 'github-app/data/maps.Rdata')
-
-
-
-
-
-
-
-
-
-
-
+saveRDS(maps,file = 'github-app/data/maps.rds')
