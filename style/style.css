@@ -19,39 +19,39 @@ body, label, input, button, select {
 }
 h1, h2, h3, h4 { font-weight: 400; }
 
-#controls {
+#coefplot {
   /* Appearance */
   background-color: white;
   padding: 0 20px 20px 20px;
   cursor: move;
   /* Fade out while not hovering */
-  opacity: 0.65;
+  opacity: 0.95;
   zoom: 0.9;
-  transition: opacity 500ms 1s;
+  transition: opacity 50ms 1s;
 }
-#controls:hover {
+#coefplot:hover {
   /* Fade in while hovering */
   opacity: 0.95;
   transition-delay: 0;
 }
 
-#estimate {
+#event {
   /* Appearance */
   background-color: white;
   padding: 0 20px 20px 10px;
   cursor: move;
   /* Fade out while not hovering */
-  opacity: 0.65;
+  opacity: 0.95;
   zoom: 0.9;
   transition: opacity 500ms;
 }
-#estimate:hover {
+#event:hover {
   /* Fade in while hovering */
   opacity: 0.95;
   transition-delay: 0;
 }
 
-#avoided1 {
+#avoided_event {
   /* Appearance */
   font-size: 13px;
 }
