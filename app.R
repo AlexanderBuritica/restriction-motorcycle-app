@@ -26,9 +26,9 @@ ui <- navbarPage(title = "Restricciones a motocicletas y sus efectos sobre el cr
                  
                  # Panel Results
                  tabPanel("Resultados",withMathJax(),tags$style(type="text/css", "html, body {width:100%;height:100%}"),
-                          div(class="outer", tags$head(includeCSS("style/style.css"),includeScript("style/gomap.js"),
-                          tags$script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full", type = 'text/javascript'),
-                          tags$script("MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});", type='text/x-mathjax-config')),
+                          div(class="outer", tags$head(includeCSS("style/style.css"),includeScript("style/gomap.js")),
+                          #tags$script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full", type = 'text/javascript'),
+                          #tags$script("MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});", type='text/x-mathjax-config')),
                          
                           
                           # Map
@@ -60,26 +60,23 @@ ui <- navbarPage(title = "Restricciones a motocicletas y sus efectos sobre el cr
                       )
                  ),
                  
-                 # Panel Description
-                 tabPanel("Descripción",
-                          
-                          #includeHTML("text/description.html")
-                          
-                 ),
                  
                  # Panel Description
-                 tabPanel("Resumen",
-                          p("This proyect is an extension of the working paper"),
-                          br(),
-                          br(),
-                          br(),
-                          br(),
-                          "This proyect is under development.",
-                          br(),
-                          br(),
-                          # HTML('<center><img src="banrep_logo.png" height="72" width="72"/></center>')
+                 tabPanel("Estrategia Empírica",
+                          # Solucion al problema de insertar html https://stackoverflow.com/questions/25882276/does-shiny-ui-r-support-including-html-pages-on-each-tabpanel-with-in-tabsetpane 
+                          includeHTML("text/description.html")
+                 ),
+                 
+                 
+                 # Panel About
+                 tabPanel("Acerca de este proyecto",
+                          # Solucion al problema de insertar html https://stackoverflow.com/questions/25882276/does-shiny-ui-r-support-including-html-pages-on-each-tabpanel-with-in-tabsetpane 
+                          includeHTML("text/about.html")
                  )
 )
+
+
+
 
 
 # Create a pop-up:

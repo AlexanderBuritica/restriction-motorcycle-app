@@ -1,0 +1,12 @@
+name: restriction-app
+title: restriction-app
+username:
+account: eduard-martinez
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2585398
+bundleId: 3406107
+url: https://eduard-martinez.shinyapps.io/restriction-app/
+when: 1595044180.51892
+asMultiple: FALSE
+asStatic: FALSE
