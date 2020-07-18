@@ -34,31 +34,32 @@ citys <- spRbind(barranquilla,soledad) %>% spRbind(.,bogota) %>% spRbind(.,carta
 
 ### Load Restrictions
 r_baq_male = read_shape("Barranquilla/restriction","restric_man","1") 
-r_baq_male@data = atributtes(df = r_baq_male@data,city_rest = "Male passenger - Barranquilla",
-                             name_rest = "Male passenger restriction", date_rest = '', 
-                             area_rest = '', percent_rest = '')
+r_baq_male@data = atributtes(df = r_baq_male@data,city_rest = "Acompañante hombre - Barranquilla",area_rest='',
+                             name_rest = "Restricción de acompañante hombre", date_rest = '1 de febrero de 2017 - actual', 
+                             percent_rest = as.character(round(gArea(r_baq_male)/gArea(barranquilla)*100,2)))
 r_bog_male = read_shape("Bogota/restriction","restric","2")
-r_bog_male@data = atributtes(df = r_bog_male@data,city_rest = "Male passenger - Bogotá",
-                             name_rest = "Male passenger restriction", date_rest = '', 
-                             area_rest = '', percent_rest = '')
+r_bog_male@data = atributtes(df = r_bog_male@data,city_rest = "Acompañante hombre - Bogotá",area_rest='',
+                             name_rest = "Restricción de acompañante hombre", date_rest = '2 de febrero de 2018 - 2 de agosto del año 2018', 
+                             percent_rest = as.character(round(gArea(r_bog_male)/gArea(bogota)*100,2)))
 r_car_pass = read_shape("Cartagena/restriction","restric","3")
-r_car_pass@data = atributtes(df = r_car_pass@data,city_rest = "No passengers - Cartagena",
-                             name_rest = "No passengers restriction", date_rest = '', 
-                             area_rest = '', percent_rest = '')
+r_car_pass@data = atributtes(df = r_car_pass@data,city_rest = "Acompañantes - Cartagena",area_rest='',
+                             name_rest = "Restricción de acompañantes", date_rest = '20 de septiembre de 2016 - actual', 
+                             percent_rest = as.character(round(gArea(r_car_pass)/gArea(cartagena)*100,2)))
 r_neiva_pass = read_shape("Neiva/restriction","restric","4")
-r_neiva_pass@data = atributtes(df = r_neiva_pass@data,city_rest = "No passengers - Neiva",
-                             name_rest = "No passengers restriction", date_rest = '', 
-                             area_rest = '', percent_rest = '')
+r_neiva_pass@data = atributtes(df = r_neiva_pass@data,city_rest = "Acompañantes - Neiva",area_rest='',
+                             name_rest = "Restricción de acompañantes", date_rest = '29 de enero de 2016 - actual', 
+                             percent_rest = as.character(round(gArea(r_neiva_pass)/gArea(neiva)*100,2)))
 r_sol_moto = read_shape("Barranquilla/Base Maps","soledad_habited","5")
-r_sol_moto@data = atributtes(df = r_sol_moto@data,city_rest = "No motorcycles - Soledad",
-                             name_rest = "No motorcycles restriction", date_rest = '', 
-                             area_rest = '', percent_rest = '')
-r_baq_moto = read_shape("Barranquilla/restriction","without_motorcycle_2011",as.character(6:11))
-r_baq_moto@data = atributtes(df = r_baq_moto@data,city_rest = "No motorcycles - Barranquilla",
-                             name_rest = "No motorcycles restriction", date_rest = '', 
-                             area_rest = '', percent_rest = '')
-lapply(1:6, function(x) slot(slot(r_baq_moto,"polygons")[[x]], "ID") = as.character(x+6))
-row.names(r_baq_moto@data) <- as.character(6:11)
+r_sol_moto@data = atributtes(df = r_sol_moto@data,city_rest = "Sin motocicletas - Soledad",area_rest='',
+                             name_rest = "Zona sin motocicletas", date_rest = '22 de marzo de 2013 - actual', 
+                             percent_rest = as.character(round(gArea(r_sol_moto)/gArea(soledad)*100,2)))
+r_baq_moto = read_shape("Barranquilla/restriction","without_motorcycle_2011",as.character(6:11)) %>%
+             gUnaryUnion() %>% as(.,  "SpatialPolygonsDataFrame") 
+r_baq_moto@data = atributtes(df = r_baq_moto@data,city_rest = "Sin motocicletas - Barranquilla",area_rest='',
+                             name_rest = "Zona sin motocicletas", date_rest = '11 de septiembre de 2006 - actual', 
+                             percent_rest = as.character(round(gArea(r_baq_moto)/gArea(barranquilla)*100,2)))
+slot(slot(r_baq_moto,"polygons")[[1]], "ID") = "6"
+row.names(r_baq_moto@data) <- "6"
 
 ### Rbind shapes restrictions
 restric <- spRbind(r_baq_male,r_bog_male) %>% spRbind(.,r_car_pass) %>% 

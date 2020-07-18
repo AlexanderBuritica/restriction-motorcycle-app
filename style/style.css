@@ -27,7 +27,7 @@ h1, h2, h3, h4 { font-weight: 400; }
   /* Fade out while not hovering */
   opacity: 0.95;
   zoom: 0.9;
-  transition: opacity 50ms 1s;
+  transition: opacity 500ms 1s;
 }
 #coefplot:hover {
   /* Fade in while hovering */
@@ -51,11 +51,15 @@ h1, h2, h3, h4 { font-weight: 400; }
   transition-delay: 0;
 }
 
+#avoided_coef {
+  /* Appearance */
+  font-size: 12px;
+}
+
 #avoided_event {
   /* Appearance */
   font-size: 13px;
 }
-
 
 /* Position and style citation */
 #cite {
